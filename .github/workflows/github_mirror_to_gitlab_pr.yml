@@ -17,8 +17,8 @@ jobs:
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
-              const comment = 'https://cnosdb-admin.teleport.cnosdb.com/benchmark-hits/hits_${{ git rev-parse --short=7 ${{ github.sha }} }}.html
-                https://cnosdb-admin.teleport.cnosdb.com/benchmark-tsbs/tsbs_${{ git rev-parse --short=7 ${{ github.sha }} }}.html';
+              const comment = 'https://cnosdb-admin.teleport.cnosdb.com/benchmark-hits/hits_${{ github.sha }}.html
+                https://cnosdb-admin.teleport.cnosdb.com/benchmark-tsbs/tsbs_${{ github.sha }}.html';
               github.pull_request.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
