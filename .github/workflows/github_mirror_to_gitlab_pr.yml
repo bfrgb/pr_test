@@ -1,6 +1,7 @@
-name: Mirror and run GitLab CI on PR comment
+name: Mirror and run GitLab CI on PR comment1
 
 on:
+  workflow_dispatch:
   issue_comment:
     types: created
 
@@ -13,13 +14,11 @@ jobs:
     steps:
       - name: Add benchmark result address
         uses: actions/github-script@v5
-        env:
-          commit_id: $(git rev-parse --short=7 ${{ github.sha }})
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
-              const comment = 'https://cnosdb-admin.teleport.cnosdb.com/benchmark-hits/hits_${{ commit_id }}.html
-                https://cnosdb-admin.teleport.cnosdb.com/benchmark-tsbs/tsbs_${{ commit_id }}.html';
+              const comment = 'https://cnosdb-admin.teleport.cnosdb.com/benchmark-hits/hits_${{ github.sha }}.html
+                https://cnosdb-admin.teleport.cnosdb.com/benchmark-tsbs/tsbs_${{ github.sha }}.html';
               github.pull_request.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
