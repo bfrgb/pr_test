@@ -1,4 +1,4 @@
-name: Mirror and run GitLab CI on PR comment
+name: Mirror and run GitLab CI on PR comment1
 
 on:
   issue_comment:
