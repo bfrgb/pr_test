@@ -15,7 +15,7 @@ jobs:
       - name: Add benchmark result address
         uses: actions/github-script@v5
         env:
-          commit_id: ${git rev-parse --short=7 ${{ github.sha }}}
+          commit_id: ${{ github.sha }}
         with:
             github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
