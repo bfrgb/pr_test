@@ -26,4 +26,4 @@ jobs:
                 body: comment
               });
         env:
-          COMMIT_ID: ${{ git rev-parse --short=7 ${{ github.sha }} }}
+          COMMIT_ID: ${{ github.sha }}
